@@ -1,0 +1,21 @@
+
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+test {
+    doLast {
+        def profile = project["spring.profiles.active"]
+
+        def script = new File("${projectDir}/TestScript.groovy")
+        def args = ["exampleArgVal1", "exampleArgVal2", profile]
+
+        new GroovyShell().run(script, args)
+    }
+}
