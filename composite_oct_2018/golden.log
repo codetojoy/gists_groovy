@@ -1,0 +1,20 @@
+ id: 100 group: 1 tier: 1 level: 1 'Q1 what?'
+answers:  id: 500 text: Yes score: 1 |  id: 501 text: No score: 0 | 
+
+ id: 200 group: 2 tier: 1 level: 1 'Q2 who?'
+answers:  id: 502 text: Red score: 0 |  id: 503 text: Blue score: 1 |  id: 504 text: Green score: 0 | 
+
+subQuestions:      id: 201     group: 2     tier: 2     level: 1     'Q2.1 why?'
+    answers:  id: 500 text: Yes score: 1 |  id: 501 text: No score: 0 | 
+
+
+ id: 300 group: 3 tier: 1 level: 1 'Q3 when?'
+answers:  id: 502 text: Red score: 0 |  id: 503 text: Blue score: 1 |  id: 504 text: Green score: 0 | 
+
+subQuestions:      id: 301     group: 3     tier: 2     level: 1     'Q3.1 how?'
+    subQuestions:          id: 302         group: 3         tier: 2         level: 2         'Q3.1.1 which?'
+        answers:  id: 500 text: Yes score: 1 |  id: 501 text: No score: 0 | 
+
+
+
+TRACER Ready.

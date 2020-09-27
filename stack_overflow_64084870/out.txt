@@ -1,0 +1,3 @@
+TRACER arg : exampleArgVal1
+TRACER arg : exampleArgVal2
+TRACER arg : TEST_PROFILE
