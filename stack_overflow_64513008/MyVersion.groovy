@@ -8,6 +8,9 @@ def currentList = []
 def i = 1
 def isHeader = true
 
+// Build a list of lists:
+// [ [1,2,3,4,5,...,5000] , [5001,5002,...] , ... ]
+
 new File('data.csv').eachLine { line ->
     if (! isHeader) {
         def tokens = line.split(',')
@@ -26,6 +29,9 @@ new File('data.csv').eachLine { line ->
 }
 
 def builder = new StringBuilder()
+
+// Build a string by iterating over each list.
+// At the end of each chunk, write a newline.
 
 lists.each { list ->
     def count = 1
