@@ -29,3 +29,23 @@ rows["Id"].each { id ->
 
 println builder.toString()
 
+def lists = []
+def currentList = [] 
+def count = 1
+
+rows["Id"].each { id ->
+    currentList << id
+    if (count % chunkSize == 0) {
+        lists << currentList
+        currentList = []
+    }
+    count++
+}
+
+lists.eachWithIndex { thisList, index ->
+    if (index < (lists.size() - 1)) {
+        assert(thisList.size() == chunkSize)
+    } else {
+        assert(thisList.size() <= chunkSize)
+    }
+}
