@@ -1,9 +1,11 @@
 
+final int CHUNK_SIZE = 5000
+// set this to be the 'Id' field index: 
+final int ID_INDEX = 0
+
 def lists = []
 def currentList = [] 
 def i = 1
-final int CHUNK_SIZE = 5000
-final int ID_INDEX = 0
 def isHeader = true
 
 new File('data.csv').eachLine { line ->
