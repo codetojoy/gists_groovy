@@ -1,0 +1,48 @@
+[    
+    {
+        "id": 1,
+        "name": "John Smith",
+        "description": null,
+        "shortDescription": "No recorded interests.",
+        "alias": "JS",
+        "preferences": [
+            {
+                "id": 1,
+                "description": "likes candy and papaya",
+                "image": "papaya.jpg",
+                "name": "Papaya",
+                "dependentPreferences": [
+                    {
+                        "id": 1,
+                        "description": "Fruit must be ripe",
+                        "image": "ripe-papaya.jpg",
+                        "name": "pap"
+                    }
+                ]
+            }
+         ]
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "description": null,
+        "shortDescription": "No recorded interests.",
+        "alias": "JS",
+        "preferences": [
+            {
+                "id": 1,
+                "description": "likes candy and papaya",
+                "image": "papaya.jpg",
+                "name": "Papaya",
+                "dependentPreferences": [
+                    {
+                        "id": 1,
+                        "description": "Candy must be Skittles",
+                        "image": "Skittles.jpg",
+                        "name": "skt"
+                    }
+                ]
+            }
+         ]
+    }
+]
