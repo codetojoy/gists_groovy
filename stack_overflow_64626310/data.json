@@ -1,0 +1,81 @@
+{
+  "name": "app",
+  "test2": [
+    {
+      "status": [
+        {
+          "id": 1,
+          "pole": [
+            {
+              "Color": "RED",
+              "Status": 0
+            },
+            {
+              "Color": "AMBER",
+              "Status": 0
+            },
+            {
+              "Color": "GREEN",
+              "Status": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pole": [
+            {
+              "Color": "RED",
+              "Status": 0
+            },
+            {
+              "Color": "AMBER",
+              "Status": 0
+            },
+            {
+              "Color": "GREEN",
+              "Status": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": [
+        {
+          "id": 1,
+          "pole": [
+            {
+              "Color": "RED",
+              "Status": 0
+            },
+            {
+              "Color": "AMBER",
+              "Status": 0
+            },
+            {
+              "Color": "GREEN",
+              "Status": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "pole": [
+            {
+              "Color": "RED",
+              "Status": 0
+            },
+            {
+              "Color": "AMBER",
+              "Status": 0
+            },
+            {
+              "Color": "GREEN",
+              "Status": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
