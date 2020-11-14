@@ -1,10 +1,15 @@
 import groovy.json.JsonSlurper
+import java.math.BigDecimal
 // import ru.itrpro.xm.plugins.groovy.ResultSetReader;
 
 class ResultSetReader {
 }
 
 class XM_PARSE_XLS {
+
+    def getTypeDef(def value) {
+        (value instanceof BigDecimal) ? "double" : value.getClass().simpleName
+    }
 
     def execute(ResultSetReader reader, String pfile) {
         def jsonSlurper = new JsonSlurper()
@@ -19,7 +24,7 @@ class XM_PARSE_XLS {
         list.each { map ->
             map.each { key, value ->
                 if (value) {
-                    typeMap[key] = value.getClass().simpleName
+                    typeMap[key] = getTypeDef(value)
                 }
             }
         }
@@ -73,7 +78,14 @@ String pfile2 =  """
   "JOB":null}]
 """
 
+String pfile3 =  """
+[{"AUTO":"honda",
+  "HOME":"canada",
+  "JOB":"software",
+  "VALUE":3.14}]
+"""
+
 def SSC = new XM_PARSE_XLS()
-def res = SSC.execute(new ResultSetReader(), pfile)
+def res = SSC.execute(new ResultSetReader(), pfile3)
 
 println "Ready."
