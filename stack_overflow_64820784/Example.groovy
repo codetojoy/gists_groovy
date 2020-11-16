@@ -23,7 +23,7 @@ class XM_PARSE_XLS {
         def typeMap = [:].withDefault { key -> "String" }
         list.each { map ->
             map.each { key, value ->
-                if (value) {
+                if (value != null) {
                     typeMap[key] = getTypeDef(value)
                 }
             }
