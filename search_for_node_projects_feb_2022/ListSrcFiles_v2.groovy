@@ -10,18 +10,19 @@
 // 
 // just list files in the various `src` folders
 
-def listFiles = { dir, currentDepth, targetDepth -> 
+def listFiles
+listFiles = { File dir, int currentDepth, int targetDepth -> 
     if (currentDepth != targetDepth) {
+        println "TRACER debug cp 1 ${dir} ${currentDepth} ${targetDepth}"
        dir.eachFile { file -> 
         if (!file.isDirectory()) { return }
         listFiles(file, currentDepth + 1, targetDepth) 
        } 
     } else {
-        dir.eachFileRecurse { file ->
-            if (!file.isDirectory() || file.name != 'src') { return }
-            file.eachFileRecurse { file ->
-                println "TRACER f: ${file.absolutePath}"
-            }
+        println "TRACER debug cp 2 ${dir} ${currentDepth} ${targetDepth}"
+        if (!dir.isDirectory() || dir.name != 'src') { return }
+        dir.eachFileRecurse { targetFile ->
+            println "TRACER f: ${targetFile.absolutePath}"
         }
     }
 }
