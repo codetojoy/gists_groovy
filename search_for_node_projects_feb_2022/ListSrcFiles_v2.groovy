@@ -9,18 +9,19 @@
 // ./section_2_advanced/01-foo-project/public
 // 
 // just list files in the various `src` folders
+// do not recurse through `node_modules`
 
 def listFiles
-listFiles = { File dir, int currentDepth, int targetDepth -> 
+listFiles = { File dir, int currentDepth, int targetDepth, String targetDirName -> 
     if (currentDepth != targetDepth) {
         println "TRACER debug cp 1 ${dir} ${currentDepth} ${targetDepth}"
        dir.eachFile { file -> 
         if (!file.isDirectory()) { return }
-        listFiles(file, currentDepth + 1, targetDepth) 
+        listFiles(file, currentDepth + 1, targetDepth, targetDirName) 
        } 
     } else {
         println "TRACER debug cp 2 ${dir} ${currentDepth} ${targetDepth}"
-        if (!dir.isDirectory() || dir.name != 'src') { return }
+        if (!dir.isDirectory() || dir.name != targetDirName) { return }
         dir.eachFileRecurse { targetFile ->
             println "TRACER f: ${targetFile.absolutePath}"
         }
@@ -35,6 +36,7 @@ listFiles = { File dir, int currentDepth, int targetDepth ->
 def startDir = new File(".")
 def startDepth = 0
 def targetDepth = 3
-listFiles(startDir, startDepth, targetDepth)
+def targetDirName = 'src'
+listFiles(startDir, startDepth, targetDepth, targetDirName)
 
 println "Ready."
