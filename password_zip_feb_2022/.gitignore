@@ -1,5 +1,4 @@
 ./setvars.sh
-./lib
 ./test_data
 ./output
 ./extract
