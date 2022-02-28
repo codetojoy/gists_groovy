@@ -3,14 +3,12 @@
 
 @Grab(group='net.lingala.zip4j', module='zip4j', version='2.9.1')
 
-class DummyForGrab {} 
+import net.lingala.zip4j.ZipFile
+import net.lingala.zip4j.model.ZipParameters
+import net.lingala.zip4j.model.enums.EncryptionMethod
 
-import net.lingala.zip4j.*
-import net.lingala.zip4j.model.*
-import net.lingala.zip4j.model.enums.*
-
+// uses: Zip4j
 // https://github.com/srikanth-lingala/zip4j
-// https://stackoverflow.com/a/37036899/12704
 
 def createZip = { params ->
     def zipParameters = new ZipParameters()
@@ -20,12 +18,8 @@ def createZip = { params ->
 
     def filesToAdd = []
     def dir = new File(params.targetDir)
-    dir.eachFile { file ->
-        if (file.isFile()) {
-            filesToAdd << file
-        } else {
-            println "TRACER skipping folder: " + fileName
-        }
+    dir.eachFile(groovy.io.FileType.FILES) { file ->
+        filesToAdd << file
     }
 
     def zipFile = new ZipFile(params.zipFile, params.password.toCharArray())
@@ -85,7 +79,7 @@ def getParams = { args ->
     def password = System.getenv(ZIP_PASSWORD)
     
     if (password == null || password.trim().isEmpty() || password.length() < 5) { 
-        usage("could not find/use $ZIP_PASSWORD env var")
+        usage("could not find/use ZIP_PASSWORD env var")
     }
 
     def params = new Params()
