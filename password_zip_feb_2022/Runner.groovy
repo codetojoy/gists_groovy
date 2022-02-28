@@ -82,13 +82,7 @@ def getParams = { args ->
         usage("could not find/use ZIP_PASSWORD env var")
     }
 
-    def params = new Params()
-    params.mode = mode
-    params.targetDir = args[1]
-    params.zipFile = args[2]
-    params.password = password
-
-    return params
+    return new Params(mode: mode, targetDir: targetDir, zipFile: zipFile, password: password)
 }
 
 // ----------- main
