@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Someinformation>
+<catalog>
+   <book id="bk101">
+      <author>Gambardella, Matthew</author>
+      <title>XML Developer's Guide</title>
+      <genre>Computer</genre>
+      <price>44.95</price>
+      <publish_date>2000-10-01</publish_date>
+      <description>An in-depth look at creating applications 
+      with XML.</description>
+   </book>
+   <book id="bk102">
+      <author>Ralls, Kim</author>
+      <title>Midnight Rain</title>
+      <genre>Fantasy</genre>
+      <price>5.95</price>
+      <publish_date>2000-12-16</publish_date>
+      <description>A former architect battles corporate zombies, 
+      an evil sorceress, and her own childhood to become queen 
+      of the world.</description>
+   </book>
+</catalog>
+<Shops>
+    <shop id ="shop1" index="1">
+    <ctr  country="Japan">01</ctr>
+    <ctr  country="Korea">02</ctr>
+    </shop>
+    <shop id ="shop2" index="2">
+    <ctr  country="England">03</ctr>
+    <ctr  country="Germany">04</ctr>
+    </shop>
+</Shops>
+</Someinformation>
