@@ -5,6 +5,11 @@ import java.time.temporal.*
 
 // ------ main
 
+def buildNMonthsAgo = { numMonths ->
+    LocalDate nowDate = LocalDate.now()  
+    def result = nowDate.minus(numMonths, ChronoUnit.MONTHS) 
+    return result
+}
 
 def isOlderThan = { LocalDate date, int numMonths ->
     LocalDate nowDate = LocalDate.now()  
@@ -14,9 +19,9 @@ def isOlderThan = { LocalDate date, int numMonths ->
 
 def getClosest = { String s ->
     LocalDate date = LocalDate.parse(s) 
-    if (isOlderThan(date, 12)) {
-        LocalDate nowDate = LocalDate.now()  
-        return nowDate.minus(12, ChronoUnit.MONTHS)
+    LocalDate twelveMonthsAgo = buildNMonthsAgo(12)
+    if (date.isBefore(twelveMonthsAgo)) {
+        return twelveMonthsAgo
     } else {
         return date
     }
