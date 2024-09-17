@@ -51,4 +51,13 @@ utcArray.each { println it }
 
 println ""
 
+def sortedUtcArray = utcArray.sort { a, b ->
+    def hourA = a.dateTime.getHour()
+    def hourB = b.dateTime.getHour()
+    return hourA <=> hourB
+}
+
+println "TRACER SORTED IN UTC"
+sortedUtcArray.each { println it }
+
 println "Ready."
